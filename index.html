@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>locSEV</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <div class="app-header">
+            <div class="app-logo">locSEV</div>
+            <div class="app-subtitle">Save locations, launch rides</div>
+        </div>
+
+        <!-- Add Location Form -->
+        <div class="card">
+            <div class="section-title">
+                <i class="fas fa-map-marker-alt"></i> Add New Location
+            </div>
+            
+            <div class="input-container">
+                <label for="locationName" class="label">Location Name</label>
+                <input type="text" id="locationName" class="input-field" placeholder="Home, Office, Gym...">
+                <div class="input-icon">
+                    <i class="fas fa-tag"></i>
+                </div>
+            </div>
+            
+            <div class="input-container">
+                <label for="locationAddress" class="label">Address</label>
+                <input type="text" id="locationAddress" class="input-field" placeholder="Full address or landmark">
+                <div class="input-icon">
+                    <i class="fas fa-map-pin"></i>
+                </div>
+            </div>
+            
+            <button id="addLocationBtn" class="btn btn-primary w-full">
+                <i class="fas fa-plus btn-icon"></i> Save Location
+            </button>
+        </div>
+
+        <!-- Saved Locations List -->
+        <div class="card">
+            <div class="section-title">
+                <i class="fas fa-bookmark"></i> Saved Locations
+            </div>
+            
+            <!-- Search Bar for Saved Locations -->
+            <div class="input-container">
+                <input type="text" id="locationSearch" class="input-field" placeholder="Search saved locations...">
+                <div class="input-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+            
+            <!-- Scrollable Locations Container -->
+            <div class="locations-container" id="locationsContainer">
+                <div id="savedLocations">
+                    <!-- Locations will be added here dynamically -->
+                    <div class="empty-state" id="noLocationsMsg">
+                        <i class="fas fa-map"></i>
+                        <div class="empty-state-text">No saved locations yet</div>
+                    </div>
+                </div>
+            </div>
+            
+            <button id="clearLocationsBtn" class="btn btn-danger w-full mt-4">
+                <i class="fas fa-trash-alt btn-icon"></i> Clear All Locations
+            </button>
+        </div>
+
+        <!-- Ride Selector -->
+        <div class="card">
+            <div class="section-title">
+                <i class="fas fa-car"></i> Book a Ride
+            </div>
+            
+            <div class="mb-4">
+                <label for="fromLocation" class="label">From</label>
+                <select id="fromLocation" class="select-field">
+                    <option value="">Select starting location</option>
+                </select>
+            </div>
+            
+            <div class="mb-6">
+                <label for="toLocation" class="label">To</label>
+                <select id="toLocation" class="select-field">
+                    <option value="">Select destination</option>
+                </select>
+            </div>
+            
+            <div class="flex flex-wrap justify-center">
+                <button class="ride-app-btn uber-btn" id="uberBtn">
+                    <i class="fas fa-car-side mr-2"></i> Uber
+                </button>
+                <button class="ride-app-btn ola-btn" id="olaBtn">
+                    <i class="fas fa-taxi mr-2"></i> Ola
+                </button>
+                <button class="ride-app-btn rapido-btn" id="rapidoBtn">
+                    <i class="fas fa-motorcycle mr-2"></i> Rapido
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
